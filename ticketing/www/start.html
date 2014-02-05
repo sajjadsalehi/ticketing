@@ -39,15 +39,12 @@ if (window.localStorage) {
        for (var i = 0; i < localStorage.length; i++) {
            document.getElementById('storage').innerHTML += localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i)) + '<br/>';
        }
-    } else {
-       document.getElementById('storage').innerHTML += 'There is no data stored for this domain.';
     }
-} else {
-    document.getElementById('storage').innerHTML += 'Your browser does not support local storage.'
-}
+	} 
 	}
 	
-	function clear() {
+	function storeClear(){
+		alert('here');
 		localStorage.clear();
 		alert('cleared');
 		}
@@ -86,7 +83,7 @@ if (window.localStorage) {
 </div>
     </p>
       <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
-      <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="clear()">
+      <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="storeClear()">
   </div>
 </div>
 
