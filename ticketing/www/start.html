@@ -12,10 +12,28 @@
     <script type="text/javascript" charset="utf-8">
 	
 	document.addEventListener("deviceready", onDeviceReady, false);
-	
+	var ready = false;
 	function onDeviceReady() {
-		alert("device is ready");
+		ready = true;
 		}
+	function store() {
+		if (ready) {
+			if(typeof(Storage)!=="undefined")
+			  {
+			   var num = localStorage.length;
+			   localStorage.setItem(num+1,document.getElementById('date').innerHTML);
+			   alert('saved');
+			   alert('number of tickets saved are: ' + localStorage.length);
+			  }
+			else
+			  {
+			  alert('storage not supported');
+			  }
+		}
+	else {
+		alert('device is not ready');
+		}
+	}
     </script>
 </head>
 <body>
@@ -50,7 +68,7 @@
 <input type="date" name="date" id="date" value=""  />	
 </div>
     </p>
-      <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;">
+      <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
   </div>
 </div>
 
