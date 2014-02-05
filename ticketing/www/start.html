@@ -33,11 +33,11 @@
 	else {
 		alert('device is not ready');
 		}
-		var output = "LOCALSTORAGE DATA:\n------------------------------------\n";
+		document.getElementById('storage').innerHTML = "LOCALSTORAGE DATA:\n------------------------------------\n";
 if (window.localStorage) {
     if (localStorage.length) {
        for (var i = 0; i < localStorage.length; i++) {
-           document.getElementById('storage').innerHTML += localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i)) + '\n';
+           document.getElementById('storage').innerHTML += localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i)) + '<br/>';
        }
     } else {
        document.getElementById('storage').innerHTML += 'There is no data stored for this domain.';
