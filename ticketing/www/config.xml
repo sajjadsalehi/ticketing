@@ -2,11 +2,12 @@
 <widget id="com.example.polimi.ticketing" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>ComoTicket</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        my app to check how much ticket I use per month!
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
+    <author email="salehi.sajjad.ai@gmail.com" href="http://phonegap.com">
         PhoneGap Team
     </author>
+	<preference name="phonegap-version" value="2.9.0" />
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
