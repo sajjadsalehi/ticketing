@@ -21,7 +21,10 @@
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
-			   localStorage.setItem(num+1,document.getElementById('date').value);
+			   alert('numbers are: ' + num);
+			   var date = document.getElementById('date').value;
+			   alert('date: ' + date);
+			   localStorage.setItem(num+1,date);
 			   alert('saved');
 			   alert('number of tickets saved are: ' + localStorage.length);
 			  }
