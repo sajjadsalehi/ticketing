@@ -33,7 +33,7 @@
 	else {
 		alert('device is not ready');
 		}
-		document.getElementById('storage').innerHTML = "LOCALSTORAGE DATA:\n------------------------------------\n";
+		document.getElementById('storage').innerHTML = "LOCALSTORAGE DATA:<br>------------------------------------<br>";
 if (window.localStorage) {
     if (localStorage.length) {
        for (var i = 0; i < localStorage.length; i++) {
@@ -46,6 +46,10 @@ if (window.localStorage) {
     document.getElementById('storage').innerHTML += 'Your browser does not support local storage.'
 }
 	}
+	
+	function clear () {
+		localStorage.clear();
+		}
     </script>
 </head>
 <body>
@@ -81,6 +85,7 @@ if (window.localStorage) {
 </div>
     </p>
       <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
+      <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="clear()">
   </div>
 </div>
 
