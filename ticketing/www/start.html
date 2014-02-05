@@ -33,6 +33,18 @@
 	else {
 		alert('device is not ready');
 		}
+		var output = "LOCALSTORAGE DATA:\n------------------------------------\n";
+if (window.localStorage) {
+    if (localStorage.length) {
+       for (var i = 0; i < localStorage.length; i++) {
+           document.getElementById('storage').innerHTML += localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i)) + '\n';
+       }
+    } else {
+       document.getElementById('storage').innerHTML += 'There is no data stored for this domain.';
+    }
+} else {
+    document.getElementById('storage').innerHTML += 'Your browser does not support local storage.'
+}
 	}
     </script>
 </head>
@@ -75,5 +87,6 @@
 <div data-role="footer" data-theme="b" data-fullscreen="true" data-position="fixed">
     <h4>Powered by Sajjad Salehi</h4>
 </div>
+<p id="storage"> </p>
 </body>
 </html>
