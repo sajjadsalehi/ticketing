@@ -49,6 +49,13 @@
 		else {
 				alert('device is not ready!');
 			}
+			
+			
+			var usage = localStorage.length * 1.5;
+			document.getElementById("used").innerHTML = usage + " &euro;";
+			
+			var save = usage - 33;
+			document.getElementById("saved").innerHTML = save + " &euro;";
 				}
 		
 	function store() {
@@ -101,12 +108,12 @@ if (window.localStorage) {
 
 <div class="ui-grid-a" style="margin-top:5px;margin-left:3px; margin-right:3px;">
     <div class="ui-block-a"><div class="ui-bar ui-bar-a">This month Usage: </div></div>
-    <div class="ui-block-b"><div class="ui-bar ui-bar-a">0 &euro;</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" id="used">0 &euro;</div></div>
 </div><!-- /grid-b -->
 
 <div class="ui-grid-a" style="margin-top:5px;margin-left:3px; margin-right:3px;">
     <div class="ui-block-a"><div class="ui-bar ui-bar-a">Saved: </div></div>
-    <div class="ui-block-b"><div class="ui-bar ui-bar-a">-33 &euro;</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" id="saved">-33 &euro;</div></div>
 </div><!-- /grid-c -->
 
 <div class="ui-corner-all custom-corners" style="margin-top:10px;margin-left:3px; margin-right:3px;">
@@ -123,16 +130,10 @@ if (window.localStorage) {
       <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
       <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="storeClear()">
       
-    <div id="lst">
 <ul data-role="listview" id="list">
-    <li>Acura</li>
-    <li>Audi</li>
-    <li>BMW</li>
-    <li>Cadillac</li>
-    <li>Ferrari</li>
+
 </ul>
 </div>
-  </div>
 </div>
 
 <div data-role="footer" data-theme="b" data-fullscreen="true" data-position="fixed">
