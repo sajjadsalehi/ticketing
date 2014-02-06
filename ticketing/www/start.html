@@ -19,18 +19,17 @@
 		}
 		
 	function update() {
+		alert('updating');
 				if (ready) {
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
-			   var str;
+			   var str = "";
 			   for(var i=0; i<num; i++){
 				   str += "<li>" + localStorage.getItem(localStorage.getItem(i)) + "</li>";
 				   }
 				   
-				   document.getElementById("date").innerHTML = str;
-				   str = "";
-				   
+				   document.getElementById("date").innerHTML = str;  
 			  }
 			else
 			  {
@@ -53,6 +52,7 @@
 			   localStorage.setItem(num+1,date);
 			   alert('saved');
 			   alert('number of tickets saved are: ' + localStorage.length);
+			   update();
 			  }
 			else
 			  {
