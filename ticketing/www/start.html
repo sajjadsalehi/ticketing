@@ -24,6 +24,7 @@
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
+			   alert(num);
 			   var str = "";
 			   for(var i=0; i<num; i++){
 				   str += "<li>" + localStorage.getItem(localStorage.key(i)) + "</li>";
@@ -46,12 +47,12 @@
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
-			   alert('numbers are: ' + num);
+			  /* alert('numbers are: ' + num);*/
 			   var date = document.getElementById('date').value;
-			   alert('date: ' + date);
+			   /*alert('date: ' + date);*/
 			   localStorage.setItem(num+1,date);
-			   alert('saved');
-			   alert('number of tickets saved are: ' + localStorage.length);
+			   /*alert('saved');*/
+			  /* alert('number of tickets saved are: ' + localStorage.length);*/
 			   update();
 			  }
 			else
@@ -62,18 +63,19 @@
 	else {
 		alert('device is not ready');
 		}
-		document.getElementById('storage').innerHTML = "LOCALSTORAGE DATA:<br>------------------------------------<br>";
+		/*document.getElementById('storage').innerHTML = "LOCALSTORAGE DATA:<br>------------------------------------<br>";
 if (window.localStorage) {
     if (localStorage.length) {
        for (var i = 0; i < localStorage.length; i++) {
            document.getElementById('storage').innerHTML += localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i)) + '<br/>';
        }
     }
-	} 
+	}*/ 
 	}
 	
 	function storeClear(){
 		localStorage.clear();
+		update();
 		}
     </script>
 </head>
