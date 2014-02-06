@@ -27,11 +27,11 @@
 			   alert(num);
 			   var str = '';
 			   document.getElementById("list").innerHTML = "";
-			   for(var i=0; i<num; i++){
+			   for(var i=0; i<num-1; i++){
 				   if( i==0 ) {//First Row is Different
 					   	str += '<li class="ui-li-static ui-body-inherit ui-first-child">' + localStorage.getItem(localStorage.key(i)) + "</li>";
 					   }
-					   else if( i==num-1 ){//Last row is different
+					   else if( i==num-2 ){//Last row is different
 						   	str += '<li class="ui-li-static ui-body-inherit ui-last-child">' + localStorage.getItem(localStorage.key(i)) + "</li>";
 						   }
 						   else{
@@ -51,7 +51,7 @@
 			}
 			
 			
-			var usage = localStorage.length * 1.5;
+			var usage = (localStorage.length-1) * 1.5;
 			document.getElementById("used").innerHTML = usage + " &euro;";
 			
 			var save = usage - 33;
@@ -130,7 +130,7 @@ if (window.localStorage) {
       <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
       <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="storeClear()">
       
-<ul data-role="listview" id="list" style="margin-top:7px">
+<ul data-role="listview" id="list" style="margin-top:10px">
 
 </ul>
 </div>
