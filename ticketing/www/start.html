@@ -25,12 +25,21 @@
 			  {
 			   var num = localStorage.length;
 			   alert(num);
-			   var str = "";
+			   var str = '';
+			   document.getElementById("list").innerHTML = "";
 			   for(var i=0; i<num; i++){
-				   str += "<li>" + localStorage.getItem(localStorage.key(i)) + "</li>";
+				   if( i==0 ) {//First Row is Different
+					   	str += '<li class="ui-li-static ui-body-inherit ui-first-child">' + localStorage.getItem(localStorage.key(i)) + "</li>";
+					   }
+					   else if( i==num-1 ){//Last row is different
+						   	str += '<li class="ui-li-static ui-body-inherit ui-last-child">' + localStorage.getItem(localStorage.key(i)) + "</li>";
+						   }
+						   else{
+				   str += '<li class="ui-li-static ui-body-inherit">' + localStorage.getItem(localStorage.key(i)) + "</li>";//adds regular rows
+						   }
 				   }
-				   
-				   document.getElementById("list").innerHTML = str;  
+				   $("#list").append(str);
+				   //document.getElementById("lst").innerHTML = str;  
 			  }
 			else
 			  {
@@ -43,7 +52,7 @@
 				}
 		
 	function store() {
-		if (ready) {
+		/*if (ready) {*/
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
@@ -60,9 +69,9 @@
 			  alert('storage not supported');
 			  }
 		}
-	else {
+/*	else {
 		alert('device is not ready');
-		}
+		}*/
 		/*document.getElementById('storage').innerHTML = "LOCALSTORAGE DATA:<br>------------------------------------<br>";
 if (window.localStorage) {
     if (localStorage.length) {
@@ -71,7 +80,7 @@ if (window.localStorage) {
        }
     }
 	}*/ 
-	}
+/*	}*/
 	
 	function storeClear(){
 		localStorage.clear();
@@ -114,9 +123,15 @@ if (window.localStorage) {
       <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
       <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="storeClear()">
       
-<ol id="list" data-role="listview">
-    
-</ol>
+    <div id="lst">
+<ul data-role="listview" id="list">
+    <li>Acura</li>
+    <li>Audi</li>
+    <li>BMW</li>
+    <li>Cadillac</li>
+    <li>Ferrari</li>
+</ul>
+</div>
   </div>
 </div>
 
