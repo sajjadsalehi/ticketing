@@ -15,7 +15,33 @@
 	var ready = false;
 	function onDeviceReady() {
 		ready = true;
+		update();
 		}
+		
+	function update() {
+				if (ready) {
+			if(typeof(Storage)!=="undefined")
+			  {
+			   var num = localStorage.length;
+			   var str;
+			   for(var i=0; i<num; i++){
+				   str += "<li>" + localStorage.getItem(localStorage.getItem(i)) + "</li>";
+				   }
+				   
+				   document.getElementById("date").innerHTML = str;
+				   str = "";
+				   
+			  }
+			else
+			  {
+			  alert('storage not supported');
+			  }
+				}
+			else {
+				alert('device is not ready');
+				}
+			}
+		
 	function store() {
 		if (ready) {
 			if(typeof(Storage)!=="undefined")
@@ -47,9 +73,7 @@ if (window.localStorage) {
 	}
 	
 	function storeClear(){
-		alert('here');
 		localStorage.clear();
-		alert('cleared');
 		}
     </script>
 </head>
@@ -87,6 +111,10 @@ if (window.localStorage) {
     </p>
       <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
       <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="storeClear()">
+      
+<ol id="list" data-role="listview">
+    
+</ol>
   </div>
 </div>
 
