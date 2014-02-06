@@ -19,12 +19,10 @@
 		}
 		
 	function update() {
-		alert('updating');
 		if(ready) {
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
-			   alert(num);
 			   var str = '';
 			   document.getElementById("list").innerHTML = "";
 			   for(var i=0; i<num-1; i++){
@@ -39,7 +37,6 @@
 						   }
 				   }
 				   $("#list").append(str);
-				   //document.getElementById("lst").innerHTML = str;  
 			  }
 			else
 			  {
@@ -49,26 +46,23 @@
 		else {
 				alert('device is not ready!');
 			}
-			
-			
-			var usage = (localStorage.length-1) * 1.5;
-			document.getElementById("used").innerHTML = usage + " &euro;";
-			
-			var save = usage - 33;
-			document.getElementById("saved").innerHTML = save + " &euro;";
+				updateNumbers();
 				}
+				
+				function updateNumbers() {
+						var usage = (localStorage.length-1) * 1.5;
+						document.getElementById("used").innerHTML = usage + " &euro;";
+						
+						var save = usage - 33;
+						document.getElementById("saved").innerHTML = save + " &euro;";
+					}
 		
 	function store() {
-		/*if (ready) {*/
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
-			  /* alert('numbers are: ' + num);*/
 			   var date = document.getElementById('date').value;
-			   /*alert('date: ' + date);*/
 			   localStorage.setItem(num+1,date);
-			   /*alert('saved');*/
-			  /* alert('number of tickets saved are: ' + localStorage.length);*/
 			   update();
 			  }
 			else
@@ -76,22 +70,12 @@
 			  alert('storage not supported');
 			  }
 		}
-/*	else {
-		alert('device is not ready');
-		}*/
-		/*document.getElementById('storage').innerHTML = "LOCALSTORAGE DATA:<br>------------------------------------<br>";
-if (window.localStorage) {
-    if (localStorage.length) {
-       for (var i = 0; i < localStorage.length; i++) {
-           document.getElementById('storage').innerHTML += localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i)) + '<br/>';
-       }
-    }
-	}*/ 
-/*	}*/
+
 	
 	function storeClear(){
 		localStorage.clear();
 		update();
+		updateNumbers();
 		}
     </script>
 </head>
@@ -127,8 +111,7 @@ if (window.localStorage) {
 <input type="date" name="date" id="date" value=""  />	
 </div>
     </p>
-      <input value="Save" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
-      <input value="clear" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="storeClear()">
+      <input value="Add Ticket" data-icon="plus" data-theme="a" type="button" style="margin-top:7px;" onClick="store()">
       
 <ul data-role="listview" id="list" style="margin-top:10px">
 
