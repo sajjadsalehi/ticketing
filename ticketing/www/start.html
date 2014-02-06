@@ -20,13 +20,13 @@
 		
 	function update() {
 		alert('updating');
-				if (ready) {
+		if(ready) {
 			if(typeof(Storage)!=="undefined")
 			  {
 			   var num = localStorage.length;
 			   var str = "";
 			   for(var i=0; i<num; i++){
-				   str += "<li>" + localStorage.getItem(localStorage.getItem(i)) + "</li>";
+				   str += "<li>" + localStorage.getItem(localStorage.key(i)) + "</li>";
 				   }
 				   
 				   document.getElementById("list").innerHTML = str;  
@@ -35,11 +35,11 @@
 			  {
 			  alert('storage not supported');
 			  }
-				}
-			else {
-				alert('device is not ready');
-				}
+		}
+		else {
+				alert('device is not ready!');
 			}
+				}
 		
 	function store() {
 		if (ready) {
